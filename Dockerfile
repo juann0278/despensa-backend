@@ -1,8 +1,10 @@
-FROM eclipse-temurin:17-jdk-alpine as build
+# Etapa de compilación usando Maven oficial
+FROM maven:3.8.5-eclipse-temurin-17 AS build
 WORKDIR /app
 COPY . .
-RUN ./mvnw clean package -DskipTests
+RUN mvn clean package -DskipTests
 
+# Etapa final para correr la app
 FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
