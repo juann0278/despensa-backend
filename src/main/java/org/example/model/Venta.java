@@ -22,10 +22,6 @@ public class Venta {
     private BigDecimal monto;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "turno", nullable = true) // Permite nulos para no romper la tabla de Render
-    private Turno turno = Turno.MANANA; // Envía un valor por defecto automáticamente
-
-    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private MedioPago medioPago; // EFECTIVO, MERCADO_PAGO, FIADO
 

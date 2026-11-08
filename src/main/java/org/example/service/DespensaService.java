@@ -1,7 +1,6 @@
 package org.example.service;
 
 import org.example.model.Gasto;
-import org.example.model.Turno;
 import org.example.model.Venta;
 import org.example.repository.GastoRepository;
 import org.example.repository.VentaRepository;
@@ -25,10 +24,6 @@ public class DespensaService {
     public Venta registrarVenta(Venta venta) {
         if (venta.getFechaHora() == null) {
             venta.setFechaHora(LocalDateTime.now());
-        }
-        // Por seguridad para la base de datos vieja en Render
-        if (venta.getTurno() == null) {
-            venta.setTurno(Turno.MANANA);
         }
         return ventaRepository.save(venta);
     }
