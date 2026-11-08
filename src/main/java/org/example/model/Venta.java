@@ -18,6 +18,10 @@ public class Venta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = true) // <--- Permitimos que sea nulo en la base de datos
+    private Turno turno;
+
     @Column(nullable = false)
     private BigDecimal monto;
 
