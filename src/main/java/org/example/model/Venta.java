@@ -23,10 +23,6 @@ public class Venta {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Turno turno; // MANANA o TARDE
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private MedioPago medioPago; // EFECTIVO, MERCADO_PAGO, FIADO
 
     private String nombreCliente; // Opcional: Para anotar a quién se le fió (ej: "Juan")
