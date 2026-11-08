@@ -26,10 +26,6 @@ public class DespensaService {
         if (venta.getFechaHora() == null) {
             venta.setFechaHora(LocalDateTime.now());
         }
-        // Si el turno viaja nulo, le asignamos uno por defecto para que la base de datos vieja no pinche
-        if (venta.getTurno() == null) {
-            venta.setTurno(Turno.MANANA);
-        }
         return ventaRepository.save(venta);
     }
 

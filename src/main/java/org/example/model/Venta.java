@@ -18,10 +18,6 @@ public class Venta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = true) // <--- Permitimos que sea nulo en la base de datos
-    private Turno turno;
-
     @Column(nullable = false)
     private BigDecimal monto;
 
@@ -29,10 +25,10 @@ public class Venta {
     @Column(nullable = false)
     private MedioPago medioPago; // EFECTIVO, MERCADO_PAGO, FIADO
 
-    private String nombreCliente; // Opcional: Para anotar a quién se le fió (ej: "Juan")
+    private String nombreCliente; // Opcional: Para anotar a quién se le fió
 
     @Column(nullable = false)
     private LocalDateTime fechaHora = LocalDateTime.now();
 
-    private String descripcion; // Opcional: tipo "Coca y pan"
+    private String descripcion; // Opcional
 }
