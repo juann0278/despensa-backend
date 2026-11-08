@@ -22,10 +22,6 @@ public class Venta {
     private BigDecimal monto;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "turno", nullable = true, columnDefinition = "varchar(255) default 'MANANA'")
-    private Turno turno = Turno.MANANA; // Valor por defecto inquebrantable
-
-    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private MedioPago medioPago; // EFECTIVO, MERCADO_PAGO, FIADO
 
