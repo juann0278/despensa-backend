@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.List;
 
 @Service
@@ -23,7 +24,8 @@ public class DespensaService {
 
     public Venta registrarVenta(Venta venta) {
         if (venta.getFechaHora() == null) {
-            venta.setFechaHora(LocalDateTime.now());
+            // Forzamos la hora actual de Argentina para evitar desfasajes UTC con Render
+            venta.setFechaHora(LocalDateTime.now(ZoneId.of("America/Argentina/Buenos_Aires")));
         }
         return ventaRepository.save(venta);
     }
@@ -56,7 +58,7 @@ public class DespensaService {
 
     public Gasto registrarGasto(Gasto gasto) {
         if (gasto.getFechaHora() == null) {
-            gasto.setFechaHora(LocalDateTime.now());
+            gasto.setFechaHora(LocalDateTime.now(ZoneId.of("America/Argentina/Buenos_Aires")));
         }
         return gastoRepository.save(gasto);
     }
